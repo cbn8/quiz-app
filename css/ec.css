@@ -210,7 +210,7 @@ ul {
 .wrap.options label {
   display: flex;
   flex: 1;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-xs);
   font-size: var(--text-size-n);
   line-height: normal;
