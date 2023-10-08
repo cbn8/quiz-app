@@ -60,7 +60,7 @@ const QuizApp = {
 
     const selectedCsv = this.csvSelect.value;
     try {
-      const response = await fetch(`/data/${selectedCsv}`);
+      const response = await fetch(`data/${selectedCsv}`);
       const data = await response.text();
       this.questions = Papa.parse(data, {
         header: true,
@@ -97,7 +97,7 @@ const QuizApp = {
       this.optionsElement.className = `wrap ${this.optionsElement.className}`;
     }
 
-    fetch(`/data/${this.defaultCsvFileName}`)
+    fetch(`data/${this.defaultCsvFileName}`)
       .then((response) => response.text())
       .then((data) => {
         this.questions = Papa.parse(data, {
