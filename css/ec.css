@@ -1,0 +1,384 @@
+/* --- Misc --- */
+
+/* Material Symbols */
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* --- Utility Classes --- */
+
+/* Reset */
+.reset-margin {
+  margin: var(--reset) !important;
+}
+
+.reset-padding {
+  padding: var(--reset) !important;
+}
+
+/* Body & Elements */
+body {
+  font-family: var(--font);
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+select.dark-mode {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23c9c5ca'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  transition: all 0.236s linear;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--md-sys-color-outline);
+  height: 4rem;
+}
+
+select.dark-mode:hover {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23c9c5ca'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  box-shadow: var(--elevation-2);
+  border: 2px solid var(--md-sys-color-outline);
+}
+
+select.dark-mode:focus {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23c9c5ca'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  box-shadow: var(--elevation-2);
+  border: 2px solid var(--md-sys-color-outline);
+}
+
+select.light-mode {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23313033\\'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  transition: all 0.236s linear;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid var(--md-sys-color-outline);
+  height: 4rem;
+}
+
+select.light-mode:hover {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23313033'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  box-shadow: var(--elevation-2);
+  border: 2px solid var(--md-sys-color-outline);
+}
+
+select.light-mode:focus {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23313033'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  box-shadow: var(--elevation-2);
+  border: 2px solid var(--md-sys-color-outline);
+}
+
+select:focus {
+  background: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' viewBox='0 -960 960 960' width='32'%3E%3Cpath d='M452-388 348-492q-19-19-8.5-43.5T377-560h206q27 0 37.5 24.5T612-492L508-388q-6 6-13 9t-15 3q-8 0-15-3t-13-9Z' fill='%23333333'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  box-shadow: var(--elevation-3);
+  border: 2px solid #808080;
+  color: var();
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.236s linear;
+}
+
+input[type="checkbox"]::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e835";
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+  font-size: var(--icon-size-default);
+  color: var(--md-sys-color-secondary);
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+input[type="checkbox"]:hover {
+  text-shadow: var(--text-elevation-4);
+}
+
+input[type="checkbox"]:checked::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e834";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: var(--icon-size-default);
+  color: var(--md-sys-color-secondary);
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: var(--space-2xs-xs);
+}
+
+.theme-toggle.dark-mode::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e518";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: var(--icon-size-default);
+  color: var(--md-sys-color-secondary);
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+.theme-toggle.dark-mode:hover::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e518";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: var(--icon-size-default);
+  color: var(--md-sys-color-primary);
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+.theme-toggle.light-mode::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e51c";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: var(--icon-size-default);
+  color: var(--md-sys-color-secondary);
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+.theme-toggle.light-mode:hover::after {
+  font-family: "Material Symbols Rounded";
+  content: "\e51c";
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-size: var(--icon-size-default);
+  color: var(--md-sys-color-primary);
+  -webkit-font-feature-settings: "liga" 1;
+  -moz-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga" 1;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+/* Button Types */
+
+button,
+.button-type-s,
+.button-type-m,
+.button-type-l {
+  font-family: var(--font);
+  align-self: flex-start;
+  border: none;
+  transition: var(--transition-all-default);
+  border-radius: var(--radius-button);
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--elevation-2);
+}
+
+.button-type-s:hover,
+.button-type-m:hover,
+.button-type-l:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-tertiary);
+}
+
+.button-type-s {
+  font-size: var(--text-size-s);
+  padding: var(--space-s);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+button:hover,
+.button-type-s:hover {
+  box-shadow: var(--elevation-5);
+}
+
+.button-type-m {
+  font-size: var(--text-size-m);
+  padding: var(--space-m);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.button-type-m:hover {
+  box-shadow: var(--elevation-5);
+}
+
+.button-type-l {
+  font-size: var(--text-size-l);
+  padding: var(--space-l);
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+.button-type-l:hover {
+  box-shadow: var(--elevation-5);
+}
+
+/* Structure */
+
+.section {
+  display: flex;
+  flex-flow: column;
+  gap: var(--section-gap);
+  padding: var(--section-padding);
+}
+
+/* The main wrap utility. */
+.wrap {
+  display: flex;
+  gap: var(--wrap-gap);
+  width: 100%;
+  max-width: var(--wrap-max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.wrap.col {
+  flex-flow: column;
+}
+
+.wrap.between {
+  justify-content: space-between;
+}
+
+/* Indents / elevates horizontally within container. Used to create additional surfaces. */
+.wrap.inner {
+  border-radius: var(--radius-surface);
+  padding: var(--wrap-inner-padding);
+}
+
+/* Tightens vertical flow. Used to wrap headings and paragraphs. */
+.text-wrap {
+  display: flex;
+  flex-flow: column;
+  gap: var(--space-s);
+}
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+  margin-top: var(--space-s);
+}
+
+/* --- Edge Cases --- */
+
+.csvselect {
+  padding: var(--space-s);
+  border-radius: var(--radius-surface);
+  border-color: var(--md-sys-color-outline);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+/* Quiz & Report UI */
+
+/* Options */
+.wrap.options {
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.wrap.options button {
+  align-self: stretch;
+  flex: 1;
+}
+
+.wrap.options label {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-size-n);
+  line-height: normal;
+  cursor: pointer;
+}
+
+.wrap.options label input[type="checkbox"] {
+  order: -1;
+}
+
+/* CsvSelect: Modifies Wrap for Desktop. Eventually this menu will be replaced with a more flexible CSS solution. */
+
+.wrap.selectmodule {
+  gap: var(--space-2xs);
+}
+
+@media only screen and (min-width: 770px) {
+  .wrap.selectmodule {
+    margin: var(--reset);
+    width: 36%;
+  }
+}
+
+/* Report Styling */
+
+.correct-question {
+  display: flex;
+  flex-flow: column;
+  gap: var(--wrap-gap);
+  padding: var(--space-m-l);
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.incorrect-question {
+  display: flex;
+  flex-flow: column;
+  gap: var(--wrap-gap);
+  padding: var(--space-m-l);
+  border-radius: 1rem;
+  width: 100%;
+}
