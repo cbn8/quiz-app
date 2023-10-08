@@ -1,4 +1,34 @@
+/* Body & Elements */
+body {
+  font-family: var(--font);
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+/* Material Symbols */
+.material-symbols-rounded {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Reset */
+.reset-margin {
+  margin: var(--reset) !important;
+}
+
+.reset-padding {
+  padding: var(--reset) !important;
+}
+
+/* Global Reset */
+
+* {
+  margin: var(--reset);
+  padding: var(--reset);
+  box-sizing: border-box;
+}
+
 /* Text Type */
+
 .text-type-heading {
   font-weight: 600;
   line-height: normal;
@@ -18,6 +48,7 @@
 }
 
 /* Text Size */
+
 .text-size-3xl {
   font-size: var(--text-size-3xl);
 }
@@ -41,6 +72,104 @@
 }
 .text-size-xs {
   font-size: var(--text-size-xs);
+}
+
+/* Button Size */
+
+button,
+.button-size-s,
+.button-size-m,
+.button-size-l {
+  font-family: var(--font);
+  align-self: flex-start;
+  border: none;
+  transition: var(--transition-all-default);
+  border-radius: var(--radius-button);
+  background-color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-primary);
+  box-shadow: var(--elevation-3);
+}
+
+.button-size-s {
+  font-size: var(--text-size-s);
+  padding: var(--space-s);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.button-size-m {
+  font-size: var(--text-size-m);
+  padding: var(--space-m);
+  align-self: flex-start;
+  cursor: pointer;
+}
+
+.button-size-l {
+  font-size: var(--text-size-l);
+  padding: var(--space-l);
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+.button-size-s:hover,
+.button-size-m:hover,
+.button-size-l:hover {
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-tertiary);
+  box-shadow: var(--elevation-5);
+}
+
+button:hover {
+  box-shadow: var(--elevation-5);
+}
+
+/* Structure */
+
+.section {
+  display: flex;
+  flex-flow: column;
+  gap: var(--section-gap);
+  padding: var(--section-padding);
+}
+
+/* The main wrap utility. */
+.wrap {
+  display: flex;
+  gap: var(--wrap-gap);
+  width: 100%;
+  max-width: var(--wrap-max-width);
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.wrap.col {
+  flex-flow: column;
+}
+
+.wrap.between {
+  justify-content: space-between;
+}
+
+/* Indents / elevates horizontally within container. Used to create additional surfaces. */
+.wrap.inner {
+  border-radius: var(--radius-surface);
+  padding: var(--wrap-inner-padding);
+}
+
+/* Tightens vertical flow. Used to wrap headings and paragraphs. */
+.text-wrap {
+  display: flex;
+  flex-flow: column;
+  gap: var(--space-s);
+}
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+  margin-top: var(--space-s);
 }
 
 /* Material Design Color Modules */
