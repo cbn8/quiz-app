@@ -1,0 +1,13 @@
+Question,Type,CorrectAnswer,Option1,Option2,Option3,Reason
+"""Students"" is a correct entity name.",TrueFalse,False,True,,,
+"""License"" is a correct attribute name.",TrueFalse,False,True,,,
+"""Employee-Manages-Employee"" is a correct relationship name.",TrueFalse,True,False,,,
+"""People"" is a correct entity name.",TrueFalse,False,True,,,
+"""PassengerMileagePlanCode"" is a correct attribute name.",TrueFalse,True,False,,,
+"""Department-IsManagedBy-Employee"" is a correct relationship name.",TrueFalse,False,True,,,
+What is the relationship minimum? Person-Marries-Person,MCQ,zero-to-zero,zero-to-one,one-to-many,one-to-one,"Since a person can be unmarried, Person-Marries-Person is zero-zero."
+What is the relationship minimum? Person-Has-Passport,MCQ,one-to-zero,one-to-many,one-to-one,zero-to-one,"Every passport must belong to a person, but not all people have a passport. Person-Has-Passport is one-zero."
+What is the relationship minimum? Flight-ArrivesAt-Airport,MCQ,one-to-one,one-to-many,zero-to-one,one-to-zero,"All flights must arrive at an airport. Assuming the database does not track new or inactive airports, all airports have arriving flights. Flight-ArrivesAt-Airport is one-one."
+"What is the attribute maximum and minimum? Entity Airport, attribute AirportCode",MCQ,singular-required,singular-optional,plural-required,required-singular,"Each airport has at most one code, so AirportCode is singular. Every airport has a code, so AirportCode is required."
+"What is the attribute maximum and minimum? Entity Person, attribute SpouseName",MCQ,singular-optional,singular-required,plural-required,required-singular,"In most countries, each person has at most one legal spouse, so SpouseName is singular. A person may be unmarried, so SpouseName is optional."
+"What is the attribute maximum and minimum? Entity Employee, attribute LanguageCode",MCQ,plural-required,plural-optional,singular-required,required-singular,"An employee may speak several languages, so LanguageCode is plural. Each employee speaks at least one language, so LanguageCode is required."
