@@ -19,3 +19,13 @@ A project may have no code. The ProjectCode attribute is _____.,MCQ,optional,req
 Distinguishing strong and weak entities is a logical design activity.,TrueFalse,False,True,,,The distinction between strong and weak entities does not depend on a specific database system. Activities that document database requirements without regard to a specific database system are part of the analysis phase.
 Determining cardinality always precedes distinguishing strong and weak entities.,TrueFalse,False,True,,,"Analysis activities are not always done in sequence. Analysis is iterative and, occasionally, steps are done out of order."
 "Database designers may look for identifying relationships first, before noting weak entities.",TrueFalse,True,False,,,Some database designers prefer to focus on identifying relationships rather than weak entities.
+An entity instance can be in two subtypes of the same partition.,TrueFalse,False,True,,,"Subtypes of a partition are mutually exclusive. Ex: A card cannot be both Visa and MasterCard, or Visa and Discover, at the same time."
+An entity instance can be in two subtypes of different partitions.,TrueFalse,True,False,,,Subtypes of different partitions can overlap. Ex: A card can be both a credit card and Visa simultaneously.
+Each partition attribute value corresponds to one subtype.,TrueFalse,True,False,,,"Values of a partition attribute indicate which partition subtype contains each entity instance. Ex: CreditType value ""Debit"" indicates the card is a DebitCard."
+One partition attribute can correspond to several partitions.,TrueFalse,False,True,,,Each partition corresponds to one partition attribute. Ex: CreditCard cannot also correspond to SponsorCode.
+Physical design affects query processing speed but never affects the query result.,TrueFalse,True,False,,,
+Which of the following are related to the Analysis Phase?,SelectAll,"Entities,Relationships,Attributes",Tables,Columns,,
+This phase implements database requirements in a specific database system:,MCQ,Analysis Phase,Logical Design,Physical Design,,
+The logical design is depicted in a table diagram. Table diagrams are similar to ER diagrams but more detailed.,TrueFalse,True,False,,,
+What allows database designers to tune query performance without changes to application programs?,MCQ,Data independence,Normalization,Triggers,Stored Procedures,
+What does API stand for?,MCQ,Application Programming Interface,Application Protocol Interface,Application Process Interface,Application Parameter Interface,
