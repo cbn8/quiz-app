@@ -2,7 +2,7 @@
     "name": "IQ",
     "short_name": "IQ",
     "description": "An interactive quiz web application.",
-    "start_url": "/",
+    "start_url": "https://cbn8.github.io/quiz-app/",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#000000",
