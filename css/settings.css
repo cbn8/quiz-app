@@ -35,9 +35,9 @@
 
 @media only screen and (max-width: 425px) {
   :root {
-    --section-padding: var(--space-2xs) var(--space-2xs) var(--space-xs)
-      var(--space-2xs);
-    --section-gap: var(--space-2xs);
+    --section-padding: var(--space-xs) var(--space-xs) var(--space-xs)
+      var(--space-xs);
+    --section-gap: var(--space-xs);
   }
 }
 
