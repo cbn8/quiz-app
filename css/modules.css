@@ -2,7 +2,7 @@
 body {
   font-family: var(--font);
   background-color: var(--md-sys-color-background);
-  color: var(--md-sys-color-on-secondary-container);
+  color: var(--md-sys-color-on-background);
 }
 
 /* Material Symbols */
@@ -85,7 +85,7 @@ button,
   border: none;
   transition: var(--transition-all-default);
   border-radius: var(--radius-button);
-  background-color: var(--md-sys-color-secondary);
+  background-color: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
   box-shadow: var(--elevation-3);
 }
@@ -392,7 +392,7 @@ input[type="checkbox"]:checked::after {
 }
 
 .theme-toggle {
-  background: none;
+  background: var(--md-sys-color-primary);
   border: none;
   padding: var(--space-2xs-xs);
 }
@@ -402,7 +402,7 @@ input[type="checkbox"]:checked::after {
   content: "\e518";
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: var(--icon-size-default);
-  color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-primary);
   -webkit-font-feature-settings: "liga" 1;
   -moz-font-feature-settings: "liga" 1;
   font-feature-settings: "liga" 1;
@@ -413,7 +413,7 @@ input[type="checkbox"]:checked::after {
   content: "\e518";
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: var(--icon-size-default);
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
   -webkit-font-feature-settings: "liga" 1;
   -moz-font-feature-settings: "liga" 1;
   font-feature-settings: "liga" 1;
@@ -424,7 +424,7 @@ input[type="checkbox"]:checked::after {
   content: "\e51c";
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: var(--icon-size-default);
-  color: var(--md-sys-color-secondary);
+  color: var(--md-sys-color-on-primary);
   -webkit-font-feature-settings: "liga" 1;
   -moz-font-feature-settings: "liga" 1;
   font-feature-settings: "liga" 1;
@@ -435,7 +435,7 @@ input[type="checkbox"]:checked::after {
   content: "\e51c";
   font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
   font-size: var(--icon-size-default);
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
   -webkit-font-feature-settings: "liga" 1;
   -moz-font-feature-settings: "liga" 1;
   font-feature-settings: "liga" 1;
