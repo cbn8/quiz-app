@@ -27,17 +27,17 @@
 
 @media only screen and (max-width: 769px) {
   :root {
-    --section-padding: var(--space-m) var(--space-m) var(--space-m)
-      var(--space-m);
-    --section-gap: var(--space-m);
+    --section-padding: var(--space-s) var(--space-s) var(--space-s)
+      var(--space-s);
+    --section-gap: var(--space-s);
   }
 }
 
 @media only screen and (max-width: 425px) {
   :root {
-    --section-padding: var(--space-xs) var(--space-xs) var(--space-xs)
-      var(--space-xs);
-    --section-gap: var(--space-xs);
+    --section-padding: var(--space-2xs) var(--space-2xs) var(--space-xs)
+      var(--space-2xs);
+    --section-gap: var(--space-2xs);
   }
 }
 
@@ -51,6 +51,6 @@
 @media only screen and (max-width: 425px) {
   :root {
     --wrap-gap: var(--space-m);
-    --wrap-inner-padding: var(--space-xs);
+    --wrap-inner-padding: var(--space-s);
   }
 }
