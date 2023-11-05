@@ -2,13 +2,21 @@
   /* Section */
 
   --section-padding: var(--space-m);
+  --section-padding-tablet: var(--space-s);
+  --section-padding-mobile: var(--space-xs);
   --section-gap: var(--space-m);
+  --section-gap-tablet: var(--space-s);
+  --section-gap-mobile: var(--space-xs);
 
   /* Wrap */
 
   --wrap-max-width: 75rem;
-  --wrap-gap: var(--space-m);
   --wrap-inner-padding: var(--space-m);
+  --wrap-inner-padding-tablet: var(--space-m);
+  --wrap-inner-padding-mobile: var(--space-s);
+  --wrap-gap: var(--space-m);
+  --wrap-gap-tablet: var(--space-m);
+  --wrap-gap-mobile: var(--space-s);
 
   /* Radius */
 
@@ -27,17 +35,15 @@
 
 @media only screen and (max-width: 769px) {
   :root {
-    --section-padding: var(--space-s) var(--space-s) var(--space-s)
-      var(--space-s);
-    --section-gap: var(--space-s);
+    --section-padding: var(--section-padding-tablet);
+    --section-gap: var(--section-gap-tablet);
   }
 }
 
 @media only screen and (max-width: 425px) {
   :root {
-    --section-padding: var(--space-xs) var(--space-xs) var(--space-xs)
-      var(--space-xs);
-    --section-gap: var(--space-xs);
+    --section-padding: var(--section-padding-mobile);
+    --section-gap: var(--section-gap-mobile);
   }
 }
 
@@ -45,8 +51,8 @@
 
 @media only screen and (max-width: 769px) {
   :root {
-    --wrap-inner-padding: var(--space-m);
-    --wrap-gap: var(--space-m);
+    --wrap-inner-padding: var(--wrap-inner-padding-tablet);
+    --wrap-gap: var(--wrap-gap-tablet);
   }
   .wrap {
     flex-direction: column !important;
@@ -54,7 +60,7 @@
 }
 @media only screen and (max-width: 425px) {
   :root {
-    --wrap-inner-padding: var(--space-s);
-    --wrap-gap: var(--space-s);
+    --wrap-inner-padding: var(--wrap-inner-padding-mobile);
+    --wrap-gap: var(--wrap-gap-mobile);
   }
 }
