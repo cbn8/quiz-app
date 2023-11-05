@@ -150,20 +150,17 @@ ul {
 
 /* Report Styling */
 
-.correct-question {
+/*.correct-question {
   display: flex;
   flex-flow: column;
   gap: var(--wrap-gap);
-  padding: var(--space-m-l);
   border-radius: 1rem;
   width: 100%;
 }
 
 .incorrect-question {
-  display: flex;
   flex-flow: column;
   gap: var(--wrap-gap);
-  padding: var(--space-m-l);
   border-radius: 1rem;
   width: 100%;
 }
