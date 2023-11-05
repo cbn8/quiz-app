@@ -312,9 +312,13 @@ const QuizApp = {
     );
 
     if (isCorrect) {
+      reportElement.classList.add("wrap");
+      reportElement.classList.add("inner");
       reportElement.classList.add("primary");
       reportElement.classList.add("on-primary-text");
     } else {
+      reportElement.classList.add("wrap");
+      reportElement.classList.add("inner");
       reportElement.classList.add("error");
       reportElement.classList.add("on-error-text");
     }
