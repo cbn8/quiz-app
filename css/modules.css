@@ -1,18 +1,3 @@
-/* Global Reset */
-
-* {
-  margin: var(--reset);
-  padding: var(--reset);
-  box-sizing: border-box;
-}
-
-/* Body & Elements */
-body {
-  font-family: var(--font);
-  background-color: var(--md-sys-color-background);
-  color: var(--md-sys-color-on-background);
-}
-
 /* Text Type */
 
 .text-type-heading {
