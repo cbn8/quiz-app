@@ -113,7 +113,7 @@ ul {
 /* Options */
 .wrap.options {
   justify-content: space-between;
-  padding: var(--space-xs);
+  padding: var(--space-xs) 0 var(--space-xs) 0;
 }
 
 .wrap.options button {
@@ -127,7 +127,7 @@ ul {
   align-items: center;
   gap: var(--space-xs);
   font-size: var(--text-size-n);
-  padding: var(--space-xs) 0 var(--space-xs) 0;
+  padding: var(--space-2xs) 0 var(--space-s) 0;
   line-height: normal;
   cursor: pointer;
 }
