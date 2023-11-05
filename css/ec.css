@@ -138,7 +138,7 @@ ul {
 /* CsvSelect: Modifies Wrap for Desktop. Eventually this menu will be replaced with a more flexible CSS solution. */
 
 .wrap.selectmodule {
-  gap: var(--space-2xs);
+  gap: var(--space-2xs) !important;
 }
 
 @media only screen and (min-width: 770px) {
