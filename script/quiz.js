@@ -349,12 +349,7 @@ const QuizApp = {
     }
 
     const reasonElement = document.createElement("div");
-    reasonElement.classList.add(
-      "reason",
-      "text-size-m",
-      "text-type-body",
-      "reset-margin"
-    );
+    reasonElement.classList.add("reason", "text-size-m", "text-type-body");
     reasonElement.innerHTML = `<strong>Reason</strong>: ${this.sanitizeHtml(
       question.Reason
     )}`;
