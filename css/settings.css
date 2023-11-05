@@ -26,7 +26,26 @@
   /* Icon */
 
   --icon-size-default: var(--space-l);
-  --icon-color-default: var(--empty);
+
+  --icon-size-s: var(--space-l);
+  --icon-size-m: var(--space-l);
+  --icon-size-l: var(--space-l);
+  --icon-size-xl: var(--space-l);
+}
+
+/* Global Reset */
+
+* {
+  margin: var(--reset);
+  padding: var(--reset);
+  box-sizing: border-box;
+}
+
+/* Body & Elements */
+body {
+  font-family: var(--font);
+  background-color: var(--md-sys-color-background);
+  color: var(--md-sys-color-on-background);
 }
 
 /* Global Media Queries */
