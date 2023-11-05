@@ -44,8 +44,9 @@
 /* Wrap */
 
 @media only screen and (max-width: 769px) {
-  .root {
-    --wrap-inner-padding: var(--space-s);
+  :root {
+    --wrap-inner-padding: var(--space-m);
+    --wrap-gap: var(--space-m);
   }
   .wrap {
     flex-direction: column !important;
@@ -53,6 +54,7 @@
 }
 @media only screen and (max-width: 425px) {
   :root {
-    --wrap-inner-padding: var(--space-xs);
+    --wrap-inner-padding: var(--space-s);
+    --wrap-gap: var(--space-s);
   }
 }
