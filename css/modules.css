@@ -143,17 +143,17 @@ button:hover {
   flex-wrap: wrap;
 }
 
+.wrap.inner {
+  border-radius: var(--radius-surface);
+  padding: var(--wrap-inner-padding);
+}
+
 .wrap.col {
   flex-flow: column;
 }
 
 .wrap.between {
   justify-content: space-between;
-}
-
-.wrap.inner {
-  border-radius: var(--radius-surface);
-  padding: var(--wrap-inner-padding);
 }
 
 .text-wrap {
