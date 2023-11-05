@@ -150,17 +150,7 @@ ul {
 
 /* Report Styling */
 
-/*.correct-question {
-  display: flex;
-  flex-flow: column;
-  gap: var(--wrap-gap);
-  border-radius: 1rem;
-  width: 100%;
-}
-
+.correct-question,
 .incorrect-question {
   flex-flow: column;
-  gap: var(--wrap-gap);
-  border-radius: 1rem;
-  width: 100%;
 }
