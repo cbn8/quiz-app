@@ -1,17 +1,12 @@
 const QuizApp = {
   // Constants and Variables
   csvFiles: [
-    { fileName: "db01.csv", displayName: "DB01" },
-    { fileName: "db02.csv", displayName: "DB02" },
-    { fileName: "db03.csv", displayName: "DB03" },
-    { fileName: "db04.csv", displayName: "DB04" },
-    { fileName: "db05.csv", displayName: "DB05" },
-    { fileName: "db06.csv", displayName: "DB06" },
-    { fileName: "db07.csv", displayName: "DB07" },
-    { fileName: "db08.csv", displayName: "DB08" },
+    { fileName: "C963-S1-1.csv", displayName: "C963-S1-1" },
+    { fileName: "C963-S1-2.csv", displayName: "C963-S1-2" },
+    { fileName: "C963-S1-3.csv", displayName: "C963-S1-3" },
     // Add more objects for additional CSV files if needed
   ],
-  defaultCsvFileName: "db01.csv",
+  defaultCsvFileName: "C963-S1-1.csv",
   currentQuestion: 0,
   score: 0,
   totalQuestions: 0,
