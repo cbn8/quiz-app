@@ -87,7 +87,7 @@ button,
 .button-size-m:hover,
 .button-size-l:hover {
   background-color: var(--md-sys-color-primary);
-  color: var(--md-sys-color-on-tertiary);
+  color: var(--md-sys-color-on-primary);
   box-shadow: var(--elevation-5);
 }
 
