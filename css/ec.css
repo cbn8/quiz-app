@@ -123,7 +123,7 @@ ul {
 .wrap.options label {
   display: flex;
   flex: 1;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-xs);
   font-size: var(--text-size-n);
   padding: var(--space-xs) 0 var(--space-xs) 0;
