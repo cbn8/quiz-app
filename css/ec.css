@@ -127,12 +127,13 @@ ul {
   gap: var(--space-xs);
   font-size: var(--text-size-n);
   padding: var(--space-xs) 0 var(--space-xs) 0;
-  line-height: normal;
   cursor: pointer;
 }
 
 .wrap.options label input[type="checkbox"] {
   order: -1;
+  position: relative;
+  bottom: 0.4rem;
 }
 
 /* CsvSelect: Modifies Wrap for Desktop. Eventually this menu will be replaced with a more flexible CSS solution. */
