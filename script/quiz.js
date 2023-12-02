@@ -214,7 +214,7 @@ const QuizApp = {
   createSubmitButton() {
     const submitButton = document.createElement("button");
     submitButton.textContent = "Submit";
-    submitButton.classList.add("button-size-m"); // Added this line to add the class
+    submitButton.classList.add("button-size-m", "text-type-label"); // Added this line to add the class
     submitButton.addEventListener("click", () => {
       const checkedOptions = Array.from(
         this.optionsElement.querySelectorAll('input[type="checkbox"]:checked')
@@ -314,7 +314,11 @@ const QuizApp = {
 
     // Create the button with different text and functionality based on the score
     const actionButton = document.createElement("button");
-    actionButton.classList.add("button-size-m", "full-width"); // Add appropriate class for styling
+    actionButton.classList.add(
+      "button-size-m",
+      "full-width",
+      "text-type-label"
+    ); // Add appropriate class for styling
 
     if (this.score === this.totalQuestions) {
       // User scored 100%
