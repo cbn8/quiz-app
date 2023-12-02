@@ -10,6 +10,8 @@ const QuizApp = {
     { fileName: "C963-S4-1.csv", displayName: "S4-1" },
     { fileName: "C963-S4-2.csv", displayName: "S4-2" },
     { fileName: "C963-S5-1.csv", displayName: "S5-1" },
+    { fileName: "C963-PA-1.csv", displayName: "PA-1" },
+    { fileName: "C963-PA-2.csv", displayName: "PA-2" },
     // Add more objects for additional CSV files if needed
   ],
   defaultCsvFileName: "C963-S1-1.csv",
