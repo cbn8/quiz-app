@@ -265,6 +265,20 @@ const QuizApp = {
     this.displayQuestion();
   },
 
+  startQuizWithIncorrect() {
+    this.questions = this.incorrectQuestions;
+    this.totalQuestions = this.questions.length;
+    this.currentQuestion = 0;
+    this.score = 0;
+    this.incorrectQuestions = [];
+    this.correctQuestions = [];
+    this.reportContainer.innerHTML = "";
+    this.reportContainer.style.display = "none";
+    this.questionElement.style.display = "block";
+    this.optionsElement.style.display = "flex";
+    this.displayQuestion();
+  },
+
   areArraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) {
       return false;
@@ -298,6 +312,24 @@ const QuizApp = {
 
     this.reportContainer.style.display = "flex";
 
+    // Create the button with different text and functionality based on the score
+    const actionButton = document.createElement("button");
+    actionButton.classList.add("button-size-m", "full-width"); // Add appropriate class for styling
+
+    if (this.score === this.totalQuestions) {
+      // User scored 100%
+      actionButton.textContent = "Restart Quiz";
+      actionButton.addEventListener("click", () => this.loadSelectedCSV());
+    } else {
+      // User did not score 100%
+      actionButton.textContent = "Next Round";
+      actionButton.addEventListener("click", () =>
+        this.startQuizWithIncorrect()
+      );
+    }
+
+    this.reportContainer.appendChild(actionButton);
+
     const quizProgressDiv = document.querySelector(".quiz-progress");
     if (quizProgressDiv) {
       const scorePercentage = (
@@ -317,8 +349,8 @@ const QuizApp = {
     if (isCorrect) {
       reportElement.classList.add("wrap");
       reportElement.classList.add("inner");
-      reportElement.classList.add("primary");
-      reportElement.classList.add("on-primary-text");
+      reportElement.classList.add("surface");
+      reportElement.classList.add("on-surface-text");
     } else {
       reportElement.classList.add("wrap");
       reportElement.classList.add("inner");
