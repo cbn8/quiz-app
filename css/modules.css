@@ -141,6 +141,10 @@ p + h6 {
   margin-top: var(--space-s);
 }
 
+.full-width {
+  width: 100%;
+}
+
 /* Color */
 
 .primary {
