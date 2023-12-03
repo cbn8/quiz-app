@@ -124,9 +124,9 @@ ul {
   display: flex;
   flex: 1;
   align-items: flex-start;
-  gap: var(--space-xs);
+  gap: var(--space-xs-s);
   font-size: var(--text-size-n);
-  padding: var(--space-xs) 0 var(--space-xs) 0;
+  padding: var(--space-xs-s) 0 var(--space-xs-s) 0;
   cursor: pointer;
 }
 
