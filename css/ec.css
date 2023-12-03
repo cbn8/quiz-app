@@ -112,7 +112,7 @@ ul {
 
 /* Options */
 .wrap.options {
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .wrap.options button {
