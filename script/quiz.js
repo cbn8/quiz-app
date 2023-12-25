@@ -211,14 +211,18 @@ const QuizApp = {
   createOptionButton(optionText) {
     const optionButton = document.createElement("button");
     optionButton.textContent = optionText;
-    optionButton.classList.add("button-size-m"); // Added this line to add the class
+    optionButton.classList.add("button-size-m", "button-type-outlined"); // Added this line to add the class
     return optionButton;
   },
 
   createSubmitButton() {
     const submitButton = document.createElement("button");
     submitButton.textContent = "Submit";
-    submitButton.classList.add("button-size-m", "text-type-label"); // Added this line to add the class
+    submitButton.classList.add(
+      "button-size-m",
+      "text-type-label",
+      "button-type-filled"
+    ); // Added this line to add the class
     submitButton.addEventListener("click", () => {
       const checkedOptions = Array.from(
         this.optionsElement.querySelectorAll('input[type="checkbox"]:checked')
@@ -321,7 +325,8 @@ const QuizApp = {
     actionButton.classList.add(
       "button-size-m",
       "full-width",
-      "text-type-label"
+      "text-type-label",
+      "button-type-filled"
     ); // Add appropriate class for styling
 
     if (this.score === this.totalQuestions) {
