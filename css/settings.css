@@ -27,10 +27,10 @@
 
   --icon-size-default: var(--space-l);
 
-  --icon-size-s: var(--space-l);
-  --icon-size-m: var(--space-l);
+  --icon-size-s: var(--space-s);
+  --icon-size-m: var(--space-m);
   --icon-size-l: var(--space-l);
-  --icon-size-xl: var(--space-l);
+  --icon-size-xl: var(--space-xl);
 }
 
 /* Global Reset */
