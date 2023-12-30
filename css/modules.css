@@ -98,7 +98,7 @@
 
 /* Structure */
 
-.section {
+.contain {
   display: flex;
   flex-flow: column;
   gap: var(--section-gap);
