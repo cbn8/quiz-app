@@ -1,6 +1,5 @@
 :root {
   /* Section */
-
   --section-padding: var(--space-m);
   --section-padding-tablet: var(--space-s);
   --section-padding-mobile: var(--space-xs);
@@ -9,7 +8,6 @@
   --section-gap-mobile: var(--space-xs);
 
   /* Wrap */
-
   --wrap-max-width: 75rem;
   --wrap-inner-padding: var(--space-m);
   --wrap-inner-padding-tablet: var(--space-m);
@@ -19,12 +17,10 @@
   --wrap-gap-mobile: var(--space-s);
 
   /* Radius */
-
   --radius-button: var(--space-s);
   --radius-surface: var(--space-m);
 
   /* Icon */
-
   --icon-size-default: var(--space-l);
 
   --icon-size-s: var(--space-s);
@@ -34,7 +30,6 @@
 }
 
 /* Global Reset */
-
 * {
   margin: var(--reset);
   padding: var(--reset);
@@ -51,7 +46,6 @@ body {
 /* Global Media Queries */
 
 /* Section */
-
 @media only screen and (max-width: 769px) {
   :root {
     --section-padding: var(--section-padding-tablet);
@@ -67,7 +61,6 @@ body {
 }
 
 /* Wrap */
-
 @media only screen and (max-width: 769px) {
   :root {
     --wrap-inner-padding: var(--wrap-inner-padding-tablet);

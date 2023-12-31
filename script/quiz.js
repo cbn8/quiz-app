@@ -35,76 +35,69 @@ const QuizApp = {
   // Utility Functions
   shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[array[i], array[j]] = [array[j], array[i]]
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
   },
 
   sanitizeHtml(html) {
-    const div = document.createElement('div')
-    div.textContent = html
-    return div.innerHTML
+    const div = document.createElement('div');
+    div.textContent = html;
+    return div.innerHTML;
   },
 
   // Dropdown Population
   populateCsvDropdown() {
-    const dropdownOptions = this.csvFiles
-      .map(
-        csvFile =>
-          `<option value="${csvFile.fileName}">${csvFile.displayName}</option>`,
-      )
-      .join('')
-    this.csvSelect.innerHTML = dropdownOptions
+    const dropdownOptions = this.csvFiles.map(csvFile => `<option value="${csvFile.fileName}">${csvFile.displayName}</option>`).join('');
+    this.csvSelect.innerHTML = dropdownOptions;
   },
 
   // Loading CSV Data
   async loadSelectedCSV() {
-    this.currentQuestion = 0
-    this.score = 0
-    this.incorrectQuestions = []
-    this.correctQuestions = []
-    this.reportContainer.innerHTML = ''
-    this.reportContainer.style.display = 'none'
-    this.questionElement.style.display = 'block'
-    this.optionsElement.style.display = 'flex'
+    this.currentQuestion = 0;
+    this.score = 0;
+    this.incorrectQuestions = [];
+    this.correctQuestions = [];
+    this.reportContainer.innerHTML = '';
+    this.reportContainer.style.display = 'none';
+    this.questionElement.style.display = 'block';
+    this.optionsElement.style.display = 'flex';
 
-    const selectedCsv = this.csvSelect.value
+    const selectedCsv = this.csvSelect.value;
     try {
-      const response = await fetch(`data/${selectedCsv}`)
-      const data = await response.text()
+      const response = await fetch(`data/${selectedCsv}`);
+      const data = await response.text();
       this.questions = Papa.parse(data, {
         header: true,
         dynamicTyping: true,
-      }).data
-      this.totalQuestions = this.questions.length
-      this.shuffleArray(this.questions)
-      const selectedDisplayName = this.csvFiles.find(
-        csvFile => csvFile.fileName === selectedCsv,
-      )?.displayName
-      const quizTitle = document.querySelector('.quiztitle')
+      }).data;
+      this.totalQuestions = this.questions.length;
+      this.shuffleArray(this.questions);
+      const selectedDisplayName = this.csvFiles.find(csvFile => csvFile.fileName === selectedCsv)?.displayName;
+      const quizTitle = document.querySelector('.quiztitle');
       if (selectedDisplayName) {
-        quizTitle.textContent = selectedDisplayName
+        quizTitle.textContent = selectedDisplayName;
       }
-      this.displayQuestion()
+      this.displayQuestion();
     } catch (error) {
-      console.error('Error loading CSV:', error)
+      console.error('Error loading CSV:', error);
     }
   },
 
   // Handling CSV Select Change
   csvSelectChange() {
-    this.loadSelectedCSV()
+    this.loadSelectedCSV();
   },
 
   // Initialization
   init() {
-    this.populateCsvDropdown()
-    this.csvSelect.addEventListener('change', () => this.csvSelectChange())
-    this.reportContainer.innerHTML = ''
+    this.populateCsvDropdown();
+    this.csvSelect.addEventListener('change', () => this.csvSelectChange());
+    this.reportContainer.innerHTML = '';
 
     // Set the 'wrap' class as the first class along with existing 'options' class
     if (this.optionsElement) {
-      this.optionsElement.className = `wrap ${this.optionsElement.className}`
+      this.optionsElement.className = `wrap ${this.optionsElement.className}`;
     }
 
     fetch(`data/${this.defaultCsvFileName}`)
@@ -113,311 +106,259 @@ const QuizApp = {
         this.questions = Papa.parse(data, {
           header: true,
           dynamicTyping: true,
-        }).data
-        this.totalQuestions = this.questions.length
-        this.shuffleArray(this.questions)
-        const defaultDisplayName = this.csvFiles.find(
-          csvFile => csvFile.fileName === this.defaultCsvFileName,
-        )?.displayName
-        const quizTitle = document.querySelector('.quiztitle')
+        }).data;
+        this.totalQuestions = this.questions.length;
+        this.shuffleArray(this.questions);
+        const defaultDisplayName = this.csvFiles.find(csvFile => csvFile.fileName === this.defaultCsvFileName)?.displayName;
+        const quizTitle = document.querySelector('.quiztitle');
         if (defaultDisplayName) {
-          quizTitle.textContent = defaultDisplayName
+          quizTitle.textContent = defaultDisplayName;
         }
-        this.displayQuestion()
-      })
+        this.displayQuestion();
+      });
   },
 
   // Displaying Questions
   displayQuestion() {
     if (this.currentQuestion < this.questions.length) {
-      const question = this.questions[this.currentQuestion]
-      this.questionElement.textContent = ''
-      this.optionsElement.innerHTML = ''
+      const question = this.questions[this.currentQuestion];
+      this.questionElement.textContent = '';
+      this.optionsElement.innerHTML = '';
 
-      const quizProgressDiv = document.querySelector('.quiz-progress')
+      const quizProgressDiv = document.querySelector('.quiz-progress');
       if (quizProgressDiv) {
-        quizProgressDiv.innerHTML = `<strong>Question ${
-          this.currentQuestion + 1
-        } </strong>/ ${this.totalQuestions}`
+        quizProgressDiv.innerHTML = `<strong>Question ${this.currentQuestion + 1} </strong>/ ${this.totalQuestions}`;
       }
 
-      this.questionElement.textContent = question.Question
+      this.questionElement.textContent = question.Question;
 
       // Determine the question type and populate the options accordingly
       if (question.Type === 'MCQ') {
-        const options = [
-          question.CorrectAnswer,
-          question.Option1,
-          question.Option2,
-          question.Option3,
-        ]
-        this.shuffleArray(options)
+        const options = [question.CorrectAnswer, question.Option1, question.Option2, question.Option3];
+        this.shuffleArray(options);
         options.forEach(option => {
-          const optionButton = this.createOptionButton(option)
-          optionButton.addEventListener('click', () => this.checkAnswer(option))
-          this.optionsElement.appendChild(optionButton)
-        })
+          const optionButton = this.createOptionButton(option);
+          optionButton.addEventListener('click', () => this.checkAnswer(option));
+          this.optionsElement.appendChild(optionButton);
+        });
       } else if (question.Type === 'TrueFalse') {
-        ;['True', 'False'].forEach(option => {
-          const optionButton = this.createOptionButton(option)
-          optionButton.addEventListener('click', () => this.checkAnswer(option))
-          this.optionsElement.appendChild(optionButton)
-        })
+        ['True', 'False'].forEach(option => {
+          const optionButton = this.createOptionButton(option);
+          optionButton.addEventListener('click', () => this.checkAnswer(option));
+          this.optionsElement.appendChild(optionButton);
+        });
       } else if (question.Type === 'SelectAll') {
         // Extract correct answers from the CorrectAnswer field
-        const correctAnswers = question.CorrectAnswer.split(',')
+        const correctAnswers = question.CorrectAnswer.split(',');
 
         // Extract additional options from Option1, Option2, Option3
-        const additionalOptions = [
-          question.Option1,
-          question.Option2,
-          question.Option3,
-        ].filter(Boolean) // Remove empty options
+        const additionalOptions = [question.Option1, question.Option2, question.Option3].filter(Boolean); // Remove empty options
 
         // Combine correct answers and additional options
-        const allOptions = [...correctAnswers, ...additionalOptions]
+        const allOptions = [...correctAnswers, ...additionalOptions];
 
         // Shuffle the options using your existing shuffleArray function
-        this.shuffleArray(allOptions)
+        this.shuffleArray(allOptions);
 
         allOptions.forEach(option => {
-          const checkBox = document.createElement('input')
-          checkBox.type = 'checkbox'
-          checkBox.value = option
+          const checkBox = document.createElement('input');
+          checkBox.type = 'checkbox';
+          checkBox.value = option;
 
-          const label = document.createElement('label')
-          label.textContent = option
-          label.appendChild(checkBox)
+          const label = document.createElement('label');
+          label.textContent = option;
+          label.appendChild(checkBox);
 
-          this.optionsElement.appendChild(label)
-        })
+          this.optionsElement.appendChild(label);
+        });
 
         // Create and add the submit button with the additional class
-        this.createSubmitButton()
+        this.createSubmitButton();
       }
 
-      this.addStyleClassesToQuestionElement()
+      this.addStyleClassesToQuestionElement();
     } else {
-      this.displayReport()
-      this.questionElement.textContent = ''
-      this.optionsElement.innerHTML = ''
+      this.displayReport();
+      this.questionElement.textContent = '';
+      this.optionsElement.innerHTML = '';
     }
   },
 
   createOptionButton(optionText) {
-    const optionButton = document.createElement('button')
-    optionButton.textContent = optionText
-    optionButton.classList.add('button-size-m', 'button-type-outlined') // Added this line to add the class
-    return optionButton
+    const optionButton = document.createElement('button');
+    optionButton.textContent = optionText;
+    optionButton.classList.add('button-size-m', 'button-type-outlined'); // Added this line to add the class
+    return optionButton;
   },
 
   createSubmitButton() {
-    const submitButton = document.createElement('button')
-    submitButton.textContent = 'Submit'
-    submitButton.classList.add(
-      'button-size-m',
-      'text-type-label',
-      'button-type-filled',
-    ) // Added this line to add the class
+    const submitButton = document.createElement('button');
+    submitButton.textContent = 'Submit';
+    submitButton.classList.add('button-size-m', 'text-type-label', 'button-type-filled'); // Added this line to add the class
     submitButton.addEventListener('click', () => {
-      const checkedOptions = Array.from(
-        this.optionsElement.querySelectorAll('input[type="checkbox"]:checked'),
-      ).map(checkbox => checkbox.value)
-      this.checkAnswer(checkedOptions)
-    })
-    this.optionsElement.appendChild(submitButton)
+      const checkedOptions = Array.from(this.optionsElement.querySelectorAll('input[type="checkbox"]:checked')).map(checkbox => checkbox.value);
+      this.checkAnswer(checkedOptions);
+    });
+    this.optionsElement.appendChild(submitButton);
   },
 
   addStyleClassesToQuestionElement() {
-    const questionElement = document.querySelector('.question')
+    const questionElement = document.querySelector('.question');
     if (questionElement) {
-      questionElement.classList.add('text-size-l', 'text-type-subheading')
+      questionElement.classList.add('text-size-l', 'text-type-subheading');
     }
   },
 
   // Checking Answers
   checkAnswer(selectedAnswer) {
-    const currentQuestionObj = this.questions[this.currentQuestion]
-    const correctAnswer = currentQuestionObj.CorrectAnswer
-    const type = currentQuestionObj.Type
+    const currentQuestionObj = this.questions[this.currentQuestion];
+    const correctAnswer = currentQuestionObj.CorrectAnswer;
+    const type = currentQuestionObj.Type;
 
-    let isCorrect = false
+    let isCorrect = false;
 
     if (type === 'MCQ' || type === 'TrueFalse') {
-      isCorrect = selectedAnswer === correctAnswer
+      isCorrect = selectedAnswer === correctAnswer;
     } else if (type === 'SelectAll') {
       // Split the correct answer into an array and sort it
-      const sortedCorrectAnswers = correctAnswer.split(',').sort()
+      const sortedCorrectAnswers = correctAnswer.split(',').sort();
 
       // Sort the selected answers
-      const sortedSelectedAnswers = selectedAnswer.sort()
+      const sortedSelectedAnswers = selectedAnswer.sort();
 
-      isCorrect = this.areArraysEqual(
-        sortedSelectedAnswers,
-        sortedCorrectAnswers,
-      )
+      isCorrect = this.areArraysEqual(sortedSelectedAnswers, sortedCorrectAnswers);
     }
 
     if (isCorrect) {
-      this.score++
-      this.correctQuestions.push(currentQuestionObj)
+      this.score++;
+      this.correctQuestions.push(currentQuestionObj);
     } else {
       this.incorrectQuestions.push({
         ...currentQuestionObj,
         selectedAnswer,
-      })
+      });
     }
 
-    this.currentQuestion++
-    this.displayQuestion()
+    this.currentQuestion++;
+    this.displayQuestion();
   },
 
   startQuizWithIncorrect() {
-    this.questions = this.incorrectQuestions
-    this.totalQuestions = this.questions.length
-    this.currentQuestion = 0
-    this.score = 0
-    this.incorrectQuestions = []
-    this.correctQuestions = []
-    this.reportContainer.innerHTML = ''
-    this.reportContainer.style.display = 'none'
-    this.questionElement.style.display = 'block'
-    this.optionsElement.style.display = 'flex'
-    this.displayQuestion()
+    this.questions = this.incorrectQuestions;
+    this.totalQuestions = this.questions.length;
+    this.currentQuestion = 0;
+    this.score = 0;
+    this.incorrectQuestions = [];
+    this.correctQuestions = [];
+    this.reportContainer.innerHTML = '';
+    this.reportContainer.style.display = 'none';
+    this.questionElement.style.display = 'block';
+    this.optionsElement.style.display = 'flex';
+    this.displayQuestion();
   },
 
   areArraysEqual(arr1, arr2) {
     if (arr1.length !== arr2.length) {
-      return false
+      return false;
     }
-    return arr1.every((value, index) => value === arr2[index])
+    return arr1.every((value, index) => value === arr2[index]);
   },
 
   // Displaying Report
   displayReport() {
     // Clear previous report if any
-    this.reportContainer.innerHTML = ''
+    this.reportContainer.innerHTML = '';
 
     // Hide the options element
-    this.optionsElement.style.display = 'none'
+    this.optionsElement.style.display = 'none';
 
     // Hide the question element
-    this.questionElement.style.display = 'none'
+    this.questionElement.style.display = 'none';
 
     // Add the "wrap" class to the "report" container with "report" class coming after it
-    this.reportContainer.classList.add('wrap', 'report')
+    this.reportContainer.classList.add('wrap', 'report');
 
     this.incorrectQuestions.forEach((incorrectQuestion, i) => {
-      const reportElement = this.createReportElement(incorrectQuestion, i)
-      this.reportContainer.appendChild(reportElement)
-    })
+      const reportElement = this.createReportElement(incorrectQuestion, i);
+      this.reportContainer.appendChild(reportElement);
+    });
 
     this.correctQuestions.forEach((correctQuestion, i) => {
-      const reportElement = this.createReportElement(correctQuestion, i, true)
-      this.reportContainer.appendChild(reportElement)
-    })
+      const reportElement = this.createReportElement(correctQuestion, i, true);
+      this.reportContainer.appendChild(reportElement);
+    });
 
-    this.reportContainer.style.display = 'flex'
+    this.reportContainer.style.display = 'flex';
 
     // Create the button with different text and functionality based on the score
-    const actionButton = document.createElement('button')
-    actionButton.classList.add(
-      'button-size-m',
-      'full-width',
-      'text-type-label',
-      'button-type-filled',
-    ) // Add appropriate class for styling
+    const actionButton = document.createElement('button');
+    actionButton.classList.add('button-size-m', 'full-width', 'text-type-label', 'button-type-filled'); // Add appropriate class for styling
 
     if (this.score === this.totalQuestions) {
       // User scored 100%
-      actionButton.textContent = 'Restart Quiz'
-      actionButton.addEventListener('click', () => this.loadSelectedCSV())
+      actionButton.textContent = 'Restart Quiz';
+      actionButton.addEventListener('click', () => this.loadSelectedCSV());
     } else {
       // User did not score 100%
-      actionButton.textContent = 'Next Round'
-      actionButton.addEventListener('click', () =>
-        this.startQuizWithIncorrect(),
-      )
+      actionButton.textContent = 'Next Round';
+      actionButton.addEventListener('click', () => this.startQuizWithIncorrect());
     }
 
-    this.reportContainer.appendChild(actionButton)
+    this.reportContainer.appendChild(actionButton);
 
-    const quizProgressDiv = document.querySelector('.quiz-progress')
+    const quizProgressDiv = document.querySelector('.quiz-progress');
     if (quizProgressDiv) {
-      const scorePercentage = (
-        (this.score / this.totalQuestions) *
-        100
-      ).toFixed(0)
-      quizProgressDiv.innerHTML = `<strong>${scorePercentage}%</strong> - ${this.score} / ${this.totalQuestions}`
+      const scorePercentage = ((this.score / this.totalQuestions) * 100).toFixed(0);
+      quizProgressDiv.innerHTML = `<strong>${scorePercentage}%</strong> - ${this.score} / ${this.totalQuestions}`;
     }
   },
 
   createReportElement(question, index, isCorrect = false) {
-    const reportElement = document.createElement('div')
-    reportElement.classList.add(
-      isCorrect ? 'correct-question' : 'incorrect-question',
-    )
+    const reportElement = document.createElement('div');
+    reportElement.classList.add(isCorrect ? 'correct-question' : 'incorrect-question');
 
     if (isCorrect) {
-      reportElement.classList.add('wrap')
-      reportElement.classList.add('inner')
-      reportElement.classList.add('surface')
-      reportElement.classList.add('on-surface-text')
+      reportElement.classList.add('wrap');
+      reportElement.classList.add('inner');
+      reportElement.classList.add('surface');
+      reportElement.classList.add('on-surface-text');
     } else {
-      reportElement.classList.add('wrap')
-      reportElement.classList.add('inner')
-      reportElement.classList.add('error')
-      reportElement.classList.add('on-error-text')
+      reportElement.classList.add('wrap');
+      reportElement.classList.add('inner');
+      reportElement.classList.add('error');
+      reportElement.classList.add('on-error-text');
     }
 
     reportElement.innerHTML = `
-      <div class="question text-size-l text-type-subheading"><strong>${
-        index + 1
-      }.</strong> ${this.sanitizeHtml(question.Question)}</div>
-      <div class="${
-        isCorrect
-          ? 'correct-answer text-size-m text-type-body'
-          : 'incorrect-answer text-size-m text-type-body'
-      }"><strong>${
-      isCorrect ? 'Correct Answer' : 'Your Answer'
-    }</strong>: ${this.sanitizeHtml(
-      isCorrect
-        ? this.formatCorrectAnswer(question.CorrectAnswer)
-        : question.selectedAnswer || 'Not answered',
+      <div class="question text-size-l text-type-subheading"><strong>${index + 1}.</strong> ${this.sanitizeHtml(question.Question)}</div>
+      <div class="${isCorrect ? 'correct-answer text-size-m text-type-body' : 'incorrect-answer text-size-m text-type-body'}"><strong>${isCorrect ? 'Correct Answer' : 'Your Answer'}</strong>: ${this.sanitizeHtml(
+      isCorrect ? this.formatCorrectAnswer(question.CorrectAnswer) : question.selectedAnswer || 'Not answered'
     ).replace(/,/g, ', ')}</div>
-    `
+    `;
     if (!isCorrect) {
-      const correctAnswerElement = document.createElement('div')
-      correctAnswerElement.classList.add(
-        'correct-answer',
-        'text-size-m',
-        'text-type-body',
-      )
-      correctAnswerElement.innerHTML = `<strong>Correct Answer</strong>: ${this.sanitizeHtml(
-        this.formatCorrectAnswer(question.CorrectAnswer),
-      ).replace(/,/g, ', ')}`
-      reportElement.appendChild(correctAnswerElement)
+      const correctAnswerElement = document.createElement('div');
+      correctAnswerElement.classList.add('correct-answer', 'text-size-m', 'text-type-body');
+      correctAnswerElement.innerHTML = `<strong>Correct Answer</strong>: ${this.sanitizeHtml(this.formatCorrectAnswer(question.CorrectAnswer)).replace(/,/g, ', ')}`;
+      reportElement.appendChild(correctAnswerElement);
     }
 
-    const reasonElement = document.createElement('div')
-    reasonElement.classList.add('reason', 'text-size-m', 'text-type-body')
-    reasonElement.innerHTML = `<strong>Reason</strong>: ${this.sanitizeHtml(
-      question.Reason,
-    )}`
-    reportElement.appendChild(reasonElement)
+    const reasonElement = document.createElement('div');
+    reasonElement.classList.add('reason', 'text-size-m', 'text-type-body');
+    reasonElement.innerHTML = `<strong>Reason</strong>: ${this.sanitizeHtml(question.Reason)}`;
+    reportElement.appendChild(reasonElement);
 
-    return reportElement
+    return reportElement;
   },
 
   formatCorrectAnswer(correctAnswer) {
     if (Array.isArray(correctAnswer)) {
-      return correctAnswer.join(', ').replace(/,/g, ', ')
+      return correctAnswer.join(', ').replace(/,/g, ', ');
     } else if (typeof correctAnswer === 'string') {
-      return correctAnswer.replace(/,/g, ', ')
+      return correctAnswer.replace(/,/g, ', ');
     }
-    return correctAnswer
+    return correctAnswer;
   },
-}
+};
 
 // Call the initialization function to start the app
-QuizApp.init()
+QuizApp.init();
