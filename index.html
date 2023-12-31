@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="color-scheme" content="light dark" />
-        <title>IQ</title>
-        <!-- Web App Manifest for Android -->
-        <link rel="manifest" href="manifest.json" />
-        <!-- Apple Touch Icons for iOS -->
-        <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
-        <!-- CSS Load -->
-        <link rel="stylesheet" href="css/load.css" />
-        <!-- Light/Dark Mode -->
-        <script src="script/theme.js"></script>
-        <base href="https://cbn8.github.io/quiz-app/" />
-    </head>
-    <body>
-        <div class="contain">
-            <header class="wrap">
-                <div class="wrap between">
-                    <h1 class="quiztitle text-size-2xl text-type-heading">
-                        No module loaded
-                    </h1>
-                    <button class="button-type-filled theme-toggle"></button>
-                </div>
-                <div class="wrap col selectmodule">
-                    <label class="text-size-m text-type-label" for="csvselect"
-                        >Select Module:</label
-                    >
-                    <select
-                        id="csvselect"
-                        class="csvselect text-size-s text-type-body"
-                    ></select>
-                </div>
-            </header>
-            <section
-                class="wrap inner col secondary-container on-secondary-container-text"
-            >
-                <div class="quiz-progress text-size-s text-type-label"></div>
-                <h2 class="question text-size-l text-type-subheading"></h2>
-                <div class="options"></div>
-                <div class="report" style="display: none"></div>
-            </section>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>IQ</title>
+    <!-- Web App Manifest for Android -->
+    <link rel="manifest" href="manifest.json" />
+    <!-- Apple Touch Icons for iOS -->
+    <link rel="apple-touch-icon" href="icons/icon-512x512.png" />
+    <!-- CSS Load -->
+    <link rel="stylesheet" href="css/load.css" />
+    <!-- Light/Dark Mode -->
+    <script src="script/theme.js"></script>
+    <base href="https://cbn8.github.io/quiz-app/" />
+  </head>
+  <body>
+    <div class="contain">
+      <header class="wrap">
+        <div class="wrap between">
+          <h1 class="quiztitle text-size-2xl text-type-heading">
+            No module loaded
+          </h1>
+          <button class="button-type-filled theme-toggle"></button>
         </div>
-        <!-- Quiz Application -->
-        <script src="script/papaparse.min.js"></script>
-        <script src="script/quiz.js"></script>
-    </body>
+        <div class="wrap col selectmodule">
+          <label class="text-size-m text-type-label" for="csvselect"
+            >Select Module:</label
+          >
+          <select
+            id="csvselect"
+            class="csvselect text-size-s text-type-body"
+          ></select>
+        </div>
+      </header>
+      <section
+        class="wrap inner col secondary-container on-secondary-container-text"
+      >
+        <div class="quiz-progress text-size-s text-type-label"></div>
+        <h2 class="question text-size-l text-type-subheading"></h2>
+        <div class="options"></div>
+        <div class="report" style="display: none"></div>
+      </section>
+    </div>
+    <!-- Quiz Application -->
+    <script src="script/papaparse.min.js"></script>
+    <script src="script/quiz.js"></script>
+  </body>
 </html>
