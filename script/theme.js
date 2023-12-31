@@ -22,10 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (storedTheme) {
             applyTheme(storedTheme)
             currentTheme = storedTheme
-        } else if (
-            window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches
-        ) {
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             currentTheme = 'dark'
         } else {
             currentTheme = 'light'

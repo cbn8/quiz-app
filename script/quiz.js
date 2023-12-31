@@ -48,12 +48,7 @@ const QuizApp = {
 
     // Dropdown Population
     populateCsvDropdown() {
-        const dropdownOptions = this.csvFiles
-            .map(
-                (csvFile) =>
-                    `<option value="${csvFile.fileName}">${csvFile.displayName}</option>`
-            )
-            .join('')
+        const dropdownOptions = this.csvFiles.map((csvFile) => `<option value="${csvFile.fileName}">${csvFile.displayName}</option>`).join('')
         this.csvSelect.innerHTML = dropdownOptions
     },
 
@@ -78,9 +73,7 @@ const QuizApp = {
             }).data
             this.totalQuestions = this.questions.length
             this.shuffleArray(this.questions)
-            const selectedDisplayName = this.csvFiles.find(
-                (csvFile) => csvFile.fileName === selectedCsv
-            )?.displayName
+            const selectedDisplayName = this.csvFiles.find((csvFile) => csvFile.fileName === selectedCsv)?.displayName
             const quizTitle = document.querySelector('.quiztitle')
             if (selectedDisplayName) {
                 quizTitle.textContent = selectedDisplayName
@@ -116,9 +109,7 @@ const QuizApp = {
                 }).data
                 this.totalQuestions = this.questions.length
                 this.shuffleArray(this.questions)
-                const defaultDisplayName = this.csvFiles.find(
-                    (csvFile) => csvFile.fileName === this.defaultCsvFileName
-                )?.displayName
+                const defaultDisplayName = this.csvFiles.find((csvFile) => csvFile.fileName === this.defaultCsvFileName)?.displayName
                 const quizTitle = document.querySelector('.quiztitle')
                 if (defaultDisplayName) {
                     quizTitle.textContent = defaultDisplayName
@@ -136,35 +127,24 @@ const QuizApp = {
 
             const quizProgressDiv = document.querySelector('.quiz-progress')
             if (quizProgressDiv) {
-                quizProgressDiv.innerHTML = `<strong>Question ${
-                    this.currentQuestion + 1
-                } </strong>/ ${this.totalQuestions}`
+                quizProgressDiv.innerHTML = `<strong>Question ${this.currentQuestion + 1} </strong>/ ${this.totalQuestions}`
             }
 
             this.questionElement.textContent = question.Question
 
             // Determine the question type and populate the options accordingly
             if (question.Type === 'MCQ') {
-                const options = [
-                    question.CorrectAnswer,
-                    question.Option1,
-                    question.Option2,
-                    question.Option3,
-                ]
+                const options = [question.CorrectAnswer, question.Option1, question.Option2, question.Option3]
                 this.shuffleArray(options)
                 options.forEach((option) => {
                     const optionButton = this.createOptionButton(option)
-                    optionButton.addEventListener('click', () =>
-                        this.checkAnswer(option)
-                    )
+                    optionButton.addEventListener('click', () => this.checkAnswer(option))
                     this.optionsElement.appendChild(optionButton)
                 })
             } else if (question.Type === 'TrueFalse') {
                 ;['True', 'False'].forEach((option) => {
                     const optionButton = this.createOptionButton(option)
-                    optionButton.addEventListener('click', () =>
-                        this.checkAnswer(option)
-                    )
+                    optionButton.addEventListener('click', () => this.checkAnswer(option))
                     this.optionsElement.appendChild(optionButton)
                 })
             } else if (question.Type === 'SelectAll') {
@@ -172,11 +152,7 @@ const QuizApp = {
                 const correctAnswers = question.CorrectAnswer.split(',')
 
                 // Extract additional options from Option1, Option2, Option3
-                const additionalOptions = [
-                    question.Option1,
-                    question.Option2,
-                    question.Option3,
-                ].filter(Boolean) // Remove empty options
+                const additionalOptions = [question.Option1, question.Option2, question.Option3].filter(Boolean) // Remove empty options
 
                 // Combine correct answers and additional options
                 const allOptions = [...correctAnswers, ...additionalOptions]
@@ -218,17 +194,9 @@ const QuizApp = {
     createSubmitButton() {
         const submitButton = document.createElement('button')
         submitButton.textContent = 'Submit'
-        submitButton.classList.add(
-            'button-size-m',
-            'text-type-label',
-            'button-type-filled'
-        ) // Added this line to add the class
+        submitButton.classList.add('button-size-m', 'text-type-label', 'button-type-filled') // Added this line to add the class
         submitButton.addEventListener('click', () => {
-            const checkedOptions = Array.from(
-                this.optionsElement.querySelectorAll(
-                    'input[type="checkbox"]:checked'
-                )
-            ).map((checkbox) => checkbox.value)
+            const checkedOptions = Array.from(this.optionsElement.querySelectorAll('input[type="checkbox"]:checked')).map((checkbox) => checkbox.value)
             this.checkAnswer(checkedOptions)
         })
         this.optionsElement.appendChild(submitButton)
@@ -258,10 +226,7 @@ const QuizApp = {
             // Sort the selected answers
             const sortedSelectedAnswers = selectedAnswer.sort()
 
-            isCorrect = this.areArraysEqual(
-                sortedSelectedAnswers,
-                sortedCorrectAnswers
-            )
+            isCorrect = this.areArraysEqual(sortedSelectedAnswers, sortedCorrectAnswers)
         }
 
         if (isCorrect) {
@@ -319,11 +284,7 @@ const QuizApp = {
         })
 
         this.correctQuestions.forEach((correctQuestion, i) => {
-            const reportElement = this.createReportElement(
-                correctQuestion,
-                i,
-                true
-            )
+            const reportElement = this.createReportElement(correctQuestion, i, true)
             this.reportContainer.appendChild(reportElement)
         })
 
@@ -331,12 +292,7 @@ const QuizApp = {
 
         // Create the button with different text and functionality based on the score
         const actionButton = document.createElement('button')
-        actionButton.classList.add(
-            'button-size-m',
-            'full-width',
-            'text-type-label',
-            'button-type-filled'
-        ) // Add appropriate class for styling
+        actionButton.classList.add('button-size-m', 'full-width', 'text-type-label', 'button-type-filled') // Add appropriate class for styling
 
         if (this.score === this.totalQuestions) {
             // User scored 100%
@@ -345,28 +301,21 @@ const QuizApp = {
         } else {
             // User did not score 100%
             actionButton.textContent = 'Next Round'
-            actionButton.addEventListener('click', () =>
-                this.startQuizWithIncorrect()
-            )
+            actionButton.addEventListener('click', () => this.startQuizWithIncorrect())
         }
 
         this.reportContainer.appendChild(actionButton)
 
         const quizProgressDiv = document.querySelector('.quiz-progress')
         if (quizProgressDiv) {
-            const scorePercentage = (
-                (this.score / this.totalQuestions) *
-                100
-            ).toFixed(0)
+            const scorePercentage = ((this.score / this.totalQuestions) * 100).toFixed(0)
             quizProgressDiv.innerHTML = `<strong>${scorePercentage}%</strong> - ${this.score} / ${this.totalQuestions}`
         }
     },
 
     createReportElement(question, index, isCorrect = false) {
         const reportElement = document.createElement('div')
-        reportElement.classList.add(
-            isCorrect ? 'correct-question' : 'incorrect-question'
-        )
+        reportElement.classList.add(isCorrect ? 'correct-question' : 'incorrect-question')
 
         if (isCorrect) {
             reportElement.classList.add('wrap')
@@ -381,39 +330,21 @@ const QuizApp = {
         }
 
         reportElement.innerHTML = `
-      <div class="question text-size-l text-type-subheading"><strong>${
-          index + 1
-      }.</strong> ${this.sanitizeHtml(question.Question)}</div>
-      <div class="${
-          isCorrect
-              ? 'correct-answer text-size-m text-type-body'
-              : 'incorrect-answer text-size-m text-type-body'
-      }"><strong>${
-            isCorrect ? 'Correct Answer' : 'Your Answer'
-        }</strong>: ${this.sanitizeHtml(
-            isCorrect
-                ? this.formatCorrectAnswer(question.CorrectAnswer)
-                : question.selectedAnswer || 'Not answered'
+      <div class="question text-size-l text-type-subheading"><strong>${index + 1}.</strong> ${this.sanitizeHtml(question.Question)}</div>
+      <div class="${isCorrect ? 'correct-answer text-size-m text-type-body' : 'incorrect-answer text-size-m text-type-body'}"><strong>${isCorrect ? 'Correct Answer' : 'Your Answer'}</strong>: ${this.sanitizeHtml(
+            isCorrect ? this.formatCorrectAnswer(question.CorrectAnswer) : question.selectedAnswer || 'Not answered'
         ).replace(/,/g, ', ')}</div>
     `
         if (!isCorrect) {
             const correctAnswerElement = document.createElement('div')
-            correctAnswerElement.classList.add(
-                'correct-answer',
-                'text-size-m',
-                'text-type-body'
-            )
-            correctAnswerElement.innerHTML = `<strong>Correct Answer</strong>: ${this.sanitizeHtml(
-                this.formatCorrectAnswer(question.CorrectAnswer)
-            ).replace(/,/g, ', ')}`
+            correctAnswerElement.classList.add('correct-answer', 'text-size-m', 'text-type-body')
+            correctAnswerElement.innerHTML = `<strong>Correct Answer</strong>: ${this.sanitizeHtml(this.formatCorrectAnswer(question.CorrectAnswer)).replace(/,/g, ', ')}`
             reportElement.appendChild(correctAnswerElement)
         }
 
         const reasonElement = document.createElement('div')
         reasonElement.classList.add('reason', 'text-size-m', 'text-type-body')
-        reasonElement.innerHTML = `<strong>Reason</strong>: ${this.sanitizeHtml(
-            question.Reason
-        )}`
+        reasonElement.innerHTML = `<strong>Reason</strong>: ${this.sanitizeHtml(question.Reason)}`
         reportElement.appendChild(reasonElement)
 
         return reportElement
