@@ -112,7 +112,9 @@
   --md-ref-palette-tertiary95: #ffecf1;
   --md-ref-palette-tertiary99: #fffbfa;
   --md-ref-palette-tertiary100: #ffffff;
-  /* error */
+
+  /* Error */
+
   --md-ref-palette-error0: #000000;
   --md-ref-palette-error10: #410e0b;
   --md-ref-palette-error20: #601410;
@@ -126,7 +128,9 @@
   --md-ref-palette-error95: #fceeee;
   --md-ref-palette-error99: #fffbf9;
   --md-ref-palette-error100: #ffffff;
-  /* neutral */
+
+  /* Neutral */
+
   --md-ref-palette-neutral0: #000000;
   --md-ref-palette-neutral10: #1c1b1f;
   --md-ref-palette-neutral20: #313033;
@@ -140,7 +144,9 @@
   --md-ref-palette-neutral95: #f4eff4;
   --md-ref-palette-neutral99: #fffbfe;
   --md-ref-palette-neutral100: #ffffff;
-  /* neutral-variant */
+
+  /* Neutral-variant */
+
   --md-ref-palette-neutral-variant0: #000000;
   --md-ref-palette-neutral-variant10: #1d1a22;
   --md-ref-palette-neutral-variant20: #322f37;
@@ -154,7 +160,9 @@
   --md-ref-palette-neutral-variant95: #f5eefa;
   --md-ref-palette-neutral-variant99: #fffbfe;
   --md-ref-palette-neutral-variant100: #ffffff;
-  /* light */
+
+  /* Light */
+
   --md-sys-color-primary-light: #6750a4;
   --md-sys-color-on-primary-light: #ffffff;
   --md-sys-color-primary-container-light: #eaddff;
@@ -185,7 +193,9 @@
   --md-sys-color-surface-tint-light: #6750a4;
   --md-sys-color-outline-variant-light: #cac4d0;
   --md-sys-color-scrim-light: #000000;
-  /* dark */
+
+  /* Dark */
+
   --md-sys-color-primary-dark: #d0bcff;
   --md-sys-color-on-primary-dark: #381e72;
   --md-sys-color-primary-container-dark: #4f378b;
